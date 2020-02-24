@@ -111,3 +111,18 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance:textfield;
 }
+
+/* mobile */
+@media(max-width: 375px){
+  .calc{
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+@media(max-width: 411px){
+  .calc{
+    width: 100%;
+    height: 100vh;
+  }
+}
