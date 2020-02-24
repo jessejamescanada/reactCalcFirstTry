@@ -65,6 +65,9 @@ font-weight: 500;
   color: #fff;
   border-radius: 5px;
 }
+.btn:focus{
+  outline: none;
+}
 .calcBTN:hover, .resetBTN:hover{
   background-color: rgba(99, 194, 197, 0.521);
 }

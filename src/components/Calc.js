@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Calc.css";
 import CalcHeader from "./CalcHeader";
+import CalcButton from './CalcButton'
+import CalcResetButton from './CalcResetButton'
 
 class Calc extends Component {
   constructor(props) {
@@ -10,7 +12,8 @@ class Calc extends Component {
       valueOne: "",
       valueTwo: "",
       calculatedList: [],
-      netItem: ""
+      netItem: "",
+      name: ''
     };
   }
 
@@ -22,6 +25,10 @@ class Calc extends Component {
   };
 
   calculate = () => {
+
+    if(this.state.valueOne === '' || this.state.valueTwo === ''){
+      return false;
+    }else{
     // create unique ID for each value
     const newItem = {
       id: 1 + Math.random(),
@@ -40,6 +47,7 @@ class Calc extends Component {
       valueTwo: "",
       calculatedList: calculatedList
     });
+  }
   };
 
   reset = () => {
@@ -93,12 +101,14 @@ class Calc extends Component {
             className="calc2Input"
             value={this.state.valueTwo}
           />
-          <button onClick={this.calculate} className="btn calcBTN">
+          <CalcButton calcHandler={this.calculate.bind(this)}/>
+          <CalcResetButton resetHandler={this.reset.bind(this)}/>
+          {/* <button onClick={this.calculate} className="btn calcBTN">
             Calculate
-          </button>
-          <button onClick={this.reset} className="btn resetBTN">
+          </button> */}
+          {/* <button onClick={this.reset} className="btn resetBTN">
             Reset
-          </button>
+          </button> */}
           <ul className="uList">
             {this.state.calculatedList.map(item => {
               return (
